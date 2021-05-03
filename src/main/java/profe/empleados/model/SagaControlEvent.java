@@ -10,33 +10,27 @@ import java.io.Serializable;
  */
 public class SagaControlEvent implements Serializable  {
 
-	private int idEvento;
+	private EmpleadosEvent originalEvent;
 	
 	private SagaOperationResult sagaOperationResult;
 	
-	private EmpleadosEventType eventType;
-	
-	private Empleado empleado;
-
 	public SagaControlEvent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public SagaControlEvent(int idEvento, EmpleadosEventType eventType, SagaOperationResult sagaOperationResult, Empleado empleado) {
+	public SagaControlEvent(EmpleadosEvent originalEvent, SagaOperationResult sagaOperationResult) {
 		super();
-		this.idEvento = idEvento;
-		this.eventType = eventType;
+		this.originalEvent = originalEvent;
 		this.sagaOperationResult = sagaOperationResult;
-		this.empleado = empleado;
 	}
 
-	public int getIdEvento() {
-		return idEvento;
+	public EmpleadosEvent getOriginalEvent() {
+		return originalEvent;
 	}
 
-	public void setIdEvento(int idEvento) {
-		this.idEvento = idEvento;
+	public void setOriginalEvent(EmpleadosEvent originalEvent) {
+		this.originalEvent = originalEvent;
 	}
 
 	public SagaOperationResult getSagaOperationResult() {
@@ -49,24 +43,8 @@ public class SagaControlEvent implements Serializable  {
 
 	@Override
 	public String toString() {
-		return "SagaControlEvent [idEvento=" + idEvento + ", sagaOperationResult=" + sagaOperationResult + ", empleado="
-				+ empleado + "]";
-	}
-
-	public EmpleadosEventType getEventType() {
-		return eventType;
-	}
-
-	public void setEventType(EmpleadosEventType eventType) {
-		this.eventType = eventType;
-	}
-
-	public Empleado getEmpleado() {
-		return empleado;
-	}
-
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
+		return "SagaControlEvent [originalEvent=" + originalEvent + ", sagaOperationResult=" + sagaOperationResult
+				+ "]";
 	}
 	
 }
